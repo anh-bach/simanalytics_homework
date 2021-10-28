@@ -4,6 +4,7 @@ import UserCard from './component/card/UserCard';
 import Footer from './component/footer/Footer';
 import Header from './component/header/Header';
 import SideNav from './component/nav/SideNav';
+import Spinner from './assets/images/spinner.svg';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,7 @@ const App = () => {
 
       {loading ? (
         <div className='container'>
-          <div>loading...</div>
+          <img className='spinner' src={Spinner} alt='spinner' />
         </div>
       ) : (
         <div className='container'>

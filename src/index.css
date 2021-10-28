@@ -28,6 +28,11 @@ body {
   margin: 18vh 5rem 0;
   background-color: #fff;
   display: flex;
+  min-height: 100vh;
+}
+
+.spinner {
+  margin: 0 auto;
 }
 
 /* Header styles */
