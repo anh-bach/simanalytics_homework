@@ -14,8 +14,8 @@ const UserCard = ({ user = {} }) => {
 
     return (
       <Fragment>
-        <div className='card__title--user'>{user.name}</div>
-        {rowCol('Username', user.name)}
+        <h3 className='card__title--user'>{user.name}</h3>
+        {rowCol('Username', user.username)}
         {rowCol('Email', user.email)}
         {rowCol('Address', `${street}, ${suite}, ${city}.`)}
         {rowCol('Phone', user.phone)}

@@ -7,17 +7,19 @@ const SideNav = ({ users = [], currentUser, setCurrentUser }) => {
 
   return (
     <aside>
-      {users.map((user) => (
-        <div
-          className={`aside__item ${
-            currentUser && currentUser.id === user.id && 'aside__item--active'
-          }`}
-          key={user.id}
-          onClick={() => handleClick(user)}
-        >
-          {user.name}
-        </div>
-      ))}
+      <ul>
+        {users.map((user) => (
+          <li
+            key={user.id}
+            className={`aside__item ${
+              currentUser && currentUser.id === user.id && 'aside__item--active'
+            }`}
+            onClick={() => handleClick(user)}
+          >
+            {user.name}
+          </li>
+        ))}
+      </ul>
     </aside>
   );
 };
