@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, Fragment } from 'react';
+import { getUsers } from './actions/users';
+import UserCard from './component/card/UserCard';
+import Footer from './component/footer/Footer';
+import Header from './component/header/Header';
+import SideNav from './component/nav/SideNav';
 
-function App() {
+const App = () => {
+  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    loadUsers();
+  }, []);
+
+  const loadUsers = async () => {
+    try {
+      setLoading(true);
+      const res = await getUsers();
+      setUsers(res.data);
+      setCurrentUser(res.data[0]);
+      setLoading(false);
+    } catch (error) {
+      console.log('From loading users', error);
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header />
+
+      {loading ? (
+        <div className='container'>
+          <div>loading...</div>
+        </div>
+      ) : (
+        <div className='container'>
+          <SideNav
+            currentUser={currentUser}
+            users={users}
+            setCurrentUser={setCurrentUser}
+          />
+          <div className='main__content'>
+            <UserCard user={currentUser} />
+          </div>
+        </div>
+      )}
+
+      <Footer />
+    </Fragment>
   );
-}
+};
 
 export default App;
