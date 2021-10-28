@@ -6,7 +6,7 @@ Technologies used: `React and CSS3`.
 
 ### Screenshot
 
-[Screenshot-2021-10-28-at-13-57-24-User-List-Exercise.png](https://postimg.cc/5QNpMcsj)
+[![Screenshot-2021-10-28-at-13-57-24-User-List-Exercise.png](https://i.postimg.cc/PJ17YTZb/Screenshot-2021-10-28-at-13-57-24-User-List-Exercise.png)](https://postimg.cc/5QNpMcsj)
 
 ### Deploy
 
